@@ -9,42 +9,45 @@
 <style>
   :root{
     --bg:#f4f6fb; --card:#ffffff; --ink:#1c2430; --sub:#67727f;
-    --accent:#5b8def; --accent2:#7c5cff; --good:#2bb673; --warm:#ff8a5b;
+    --accent:#5b8def; --accent2:#7c5cff; --good:#2bb673; --warm:#ff8a5b; --red:#e8693a;
     --line:#e6eaf2; --shadow:0 6px 22px rgba(40,60,110,.10);
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html,body{margin:0;padding:0}
-  body{
-    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","PingFang HK","Noto Sans CJK SC","Microsoft YaHei",sans-serif;
+  body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","PingFang HK","Noto Sans CJK SC","Microsoft YaHei",sans-serif;
     background:var(--bg); color:var(--ink); line-height:1.6;
-    padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-  }
+    padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
   .wrap{max-width:560px; margin:0 auto; padding:16px 16px 40px}
   header.top{display:flex; align-items:center; gap:10px; padding:8px 2px 14px}
   header.top h1{font-size:20px; margin:0; font-weight:800; letter-spacing:.5px}
   header.top .spark{font-size:22px}
   .muted{color:var(--sub); font-size:13px}
+  .sec{font-size:13px;font-weight:700;color:var(--sub);margin:18px 2px 9px;letter-spacing:.5px}
 
-  .hero{background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#fff; border-radius:18px; padding:18px 18px 16px; box-shadow:var(--shadow); margin-bottom:16px}
-  .hero h2{margin:0 0 4px; font-size:18px}
-  .hero p{margin:0; opacity:.92; font-size:13px}
-  .hero .stat{margin-top:12px; display:flex; gap:14px; font-size:13px}
-  .hero .stat b{font-size:18px; display:block}
+  /* 复习 hero */
+  .rev{background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#fff; border-radius:18px; padding:18px; box-shadow:var(--shadow)}
+  .rev h2{margin:0 0 2px; font-size:17px}
+  .rev p{margin:0 0 14px; opacity:.92; font-size:13px}
+  .rev .cnt{font-size:40px;font-weight:800;line-height:1;margin:2px 0 14px}
+  .rev .cnt small{font-size:15px;font-weight:600;opacity:.9}
+  .rev button{width:100%;border:none;border-radius:13px;padding:14px 0;font-size:16px;font-weight:800;cursor:pointer;background:#fff;color:var(--accent)}
+  .rev button:active{transform:scale(.98)}
+  .rev button[disabled]{opacity:.55}
+  .rev .mini{display:flex;gap:16px;margin-top:12px;font-size:12px;opacity:.95}
+  .rev .mini b{font-size:16px;display:block}
 
   .deck{display:flex; align-items:center; gap:14px; background:var(--card); border:1px solid var(--line);
-    border-radius:16px; padding:14px 16px; margin-bottom:11px; cursor:pointer; box-shadow:var(--shadow); transition:transform .08s ease}
+    border-radius:16px; padding:13px 16px; margin-bottom:10px; cursor:pointer; box-shadow:var(--shadow); transition:transform .08s}
   .deck:active{transform:scale(.985)}
   .deck.star{background:linear-gradient(135deg,#fff7ed,#ffeede); border-color:#ffd9b3}
-  .deck .num{font-size:15px; font-weight:800; color:var(--accent); min-width:30px; text-align:center}
+  .deck .num{font-size:15px; font-weight:800; color:var(--accent); min-width:28px; text-align:center}
   .deck.star .num{color:var(--warm); font-size:18px}
   .deck .body{flex:1; min-width:0}
-  .deck .body .nm{font-weight:700; font-size:16px}
-  .deck .body .ds{font-size:12.5px; color:var(--sub); margin-top:1px}
-  .deck .prog{min-width:60px; text-align:right; font-size:12px; color:var(--sub)}
-  .bar{height:6px; border-radius:99px; background:var(--line); margin-top:6px; overflow:hidden}
+  .deck .body .nm{font-weight:700; font-size:15.5px}
+  .deck .body .ds{font-size:12px; color:var(--sub); margin-top:1px}
+  .deck .prog{min-width:54px; text-align:right; font-size:12px; color:var(--sub)}
+  .bar{height:5px; border-radius:99px; background:var(--line); margin-top:6px; overflow:hidden}
   .bar > i{display:block; height:100%; background:linear-gradient(90deg,var(--good),#5fd0a0); width:0%}
-
-  .tip{font-size:12.5px; color:var(--sub); background:#eef2fb; border:1px dashed #cdd8ef; border-radius:12px; padding:10px 12px; margin:6px 0 16px}
 
   .study{display:none}
   .study.on{display:block}
@@ -52,41 +55,51 @@
   .btn{background:var(--card); color:var(--ink); border:1px solid var(--line); border-radius:12px; padding:9px 13px; font-size:14px; font-weight:600; cursor:pointer}
   .btn:active{transform:scale(.96)}
   .sbar .title{flex:1; font-weight:700; font-size:15px; text-align:center}
-  .sbar .count{font-size:13px; color:var(--sub); min-width:46px; text-align:right}
+  .sbar .count{font-size:13px; color:var(--sub); min-width:50px; text-align:right}
+  .pbar{height:5px;border-radius:99px;background:var(--line);overflow:hidden;margin-bottom:14px}
+  .pbar>i{display:block;height:100%;background:var(--accent);width:0%;transition:width .2s}
 
   .flash{background:var(--card); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow);
-    min-height:300px; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:26px 20px; text-align:center}
-  .flash .hk{font-size:52px; font-weight:800; line-height:1.25; letter-spacing:1px}
-  .flash .hk.long{font-size:34px}
-  .flash .hk.xlong{font-size:26px}
-  .play{margin-top:20px; background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#fff; border:none;
-    border-radius:99px; padding:13px 26px; font-size:16px; font-weight:700; cursor:pointer; box-shadow:0 4px 14px rgba(91,141,239,.4)}
+    min-height:290px; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:24px 20px; text-align:center}
+  .flash .badge{position:absolute;align-self:flex-start;font-size:11px;color:var(--sub);background:#f0f3fa;border-radius:8px;padding:2px 8px}
+  .flash .hk{font-size:50px; font-weight:800; line-height:1.25; letter-spacing:1px}
+  .flash .hk.long{font-size:33px}
+  .flash .hk.xlong{font-size:25px}
+  .play{margin-top:18px; background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#fff; border:none;
+    border-radius:99px; padding:12px 26px; font-size:16px; font-weight:700; cursor:pointer; box-shadow:0 4px 14px rgba(91,141,239,.4)}
   .play:active{transform:scale(.95)}
-  .reveal{display:none; margin-top:18px; width:100%}
-  .reveal.on{display:block; animation:fade .25s ease}
+  .reveal{display:none; margin-top:16px; width:100%}
+  .reveal.on{display:block; animation:fade .25s}
   @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-  .jy{font-size:22px; color:var(--accent2); font-weight:700; letter-spacing:.5px}
-  .cn{font-size:17px; color:var(--sub); margin-top:6px}
+  .jy{font-size:21px; color:var(--accent2); font-weight:700; letter-spacing:.5px}
+  .cn{font-size:16px; color:var(--sub); margin-top:6px}
 
-  .acts{display:flex; gap:12px; margin-top:16px}
-  .acts button{flex:1; border-radius:14px; padding:15px 0; font-size:16px; font-weight:700; border:none; cursor:pointer}
-  .again{background:#fff1ea; color:#e8693a; border:1px solid #ffd9c7!important}
-  .know{background:#e6f8ef; color:#1d9c66; border:1px solid #bfedd5!important}
-  .acts button:active{transform:scale(.97)}
-  .showbtn{margin-top:18px; width:100%; border-radius:14px; padding:14px 0; font-size:16px; font-weight:700; background:var(--ink); color:#fff; border:none; cursor:pointer}
+  .showbtn{margin-top:16px; width:100%; border-radius:14px; padding:14px 0; font-size:16px; font-weight:700; background:var(--ink); color:#fff; border:none; cursor:pointer}
   .showbtn:active{transform:scale(.98)}
+  /* 评分（Anki） */
+  .rate{display:flex; gap:9px; margin-top:14px}
+  .rate button{flex:1; border-radius:13px; padding:12px 0 9px; font-size:15px; font-weight:800; border:none; cursor:pointer; line-height:1.15}
+  .rate button .iv{display:block;font-size:10.5px;font-weight:600;opacity:.8;margin-top:2px}
+  .rate .r0{background:#fff1ea; color:var(--red); border:1px solid #ffd9c7!important}
+  .rate .r1{background:#eef3ff; color:var(--accent); border:1px solid #cfe0ff!important}
+  .rate .r2{background:#e6f8ef; color:var(--good); border:1px solid #bfedd5!important}
+  .rate button:active{transform:scale(.96)}
+  /* 浏览模式 next */
+  .nav{display:flex;gap:10px;margin-top:14px}
+  .nav button{flex:1;border-radius:13px;padding:13px 0;font-size:15px;font-weight:700;border:1px solid var(--line);background:var(--card);cursor:pointer}
+  .nav button.prim{background:var(--ink);color:#fff;border:none}
+  .nav button:active{transform:scale(.97)}
 
-  .done{text-align:center; padding:40px 10px}
-  .done .big{font-size:44px}
-  .footer{margin-top:26px; text-align:center; font-size:12px; color:var(--sub)}
-  .footer a{color:var(--accent)}
+  .done{text-align:center; padding:42px 10px}
+  .done .big{font-size:46px}
+  .done h3{margin:10px 0 4px}
+  .footer{margin-top:24px; text-align:center; font-size:12px; color:var(--sub)}
   .ghost{background:none;border:none;color:var(--sub);font-size:12.5px;cursor:pointer;text-decoration:underline;padding:4px}
 
-  /* 调表网格 */
+  /* 调表 */
   .chartNote{font-size:13px;color:var(--sub);margin-bottom:10px}
   .rowbtns{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
   .rowbtns button{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 11px;font-size:13px;font-weight:600;cursor:pointer}
-  .rowbtns button:active{transform:scale(.96)}
   .chartScroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:16px;border:1px solid var(--line);box-shadow:var(--shadow);background:var(--card)}
   .chartGrid{display:grid;grid-template-columns:repeat(9,minmax(50px,1fr));min-width:480px}
   .chartGrid .th{padding:8px 2px;text-align:center;font-size:11px;line-height:1.35;color:#3a4658;background:#eaf0fc;border-bottom:1px solid var(--line)}
@@ -99,36 +112,45 @@
   .chartGrid .cell .c{font-size:25px;font-weight:700}
   .chartGrid .cell .p{font-size:11px;color:var(--accent2);margin-top:1px}
   .scrollhint{font-size:11.5px;color:var(--sub);text-align:center;margin:8px 0 0}
+  .tip{font-size:12.5px; color:var(--sub); background:#eef2fb; border:1px dashed #cdd8ef; border-radius:12px; padding:10px 12px; margin:14px 0 0}
 </style>
 </head>
 <body>
 <div class="wrap">
 
+  <!-- 首页 -->
   <div id="home">
     <header class="top"><span class="spark">🗣️</span><h1>粤语卡片</h1><span class="muted" style="margin-left:auto">杨万 · 香港话</span></header>
-    <div class="hero">
-      <h2>慢慢嚟，識聽識講 🎧</h2>
-      <p>跟到課堂行：第一課 九聲（聲調）→ 第二課 代詞。每張卡點 🔊 聽、跟讀。</p>
-      <div class="stat">
-        <div><b id="hLearned">0</b><span>已识得</span></div>
-        <div><b id="hTotal">0</b><span>总卡片</span></div>
-        <div><b id="hPct">0%</b><span>进度</span></div>
+
+    <div class="rev">
+      <h2>🔁 今日复习</h2>
+      <p>间隔重复（像 Anki）：不熟的很快再来，熟的隔得越久。</p>
+      <div class="cnt" id="dueCnt">0 <small>张待复习</small></div>
+      <button id="revBtn" onclick="startReview()">开始复习</button>
+      <div class="mini">
+        <div><b id="mLearn">0</b>已学</div>
+        <div><b id="mTotal">0</b>总卡</div>
+        <div><b id="mNew">0</b>待新学</div>
       </div>
     </div>
-    <div class="tip">💡 用法：点卡片 <b>🔊 听</b> → 跟读出声 → <b>睇答案</b> 看粤拼+意思 → 选「识得 / 再练」。每天 10 分钟就够。第 ★ 张是第一课重点调表。</div>
+
+    <div class="sec">📚 按课浏览（学新内容 · 点字听音）</div>
     <div id="deckList"></div>
+
     <div class="footer">
-      <button class="ghost" onclick="resetAll()">清空进度</button><br>
-      笔记里听不懂的句子 → 丢给 Claude，我加进卡片。
+      <button class="ghost" onclick="resetAll()">重置全部进度</button><br>
+      跟到课堂行：第一课 九声 · 第二课 代词。上新课我加进来。
     </div>
   </div>
 
+  <!-- 学习/复习页 -->
   <div id="study" class="study">
     <div class="sbar">
       <button class="btn" onclick="goHome()">‹ 返回</button>
       <div class="title" id="sTitle"></div>
       <div class="count" id="sCount"></div>
     </div>
+    <div class="pbar" id="pbarWrap" style="display:none"><i id="pbar"></i></div>
     <div id="cardArea"></div>
   </div>
 
@@ -136,114 +158,172 @@
 
 <script src="cards.js"></script>
 <script>
-const LS='cantoLearn.v1';
-let state={};
-function load(){ try{state=JSON.parse(localStorage.getItem(LS))||{}}catch(e){state={}} }
-function save(){ localStorage.setItem(LS,JSON.stringify(state)) }
-function cardKey(di,ci){ return di+'/'+ci }
-load();
+// ============ 存储 ============
+const SRS_KEY='cantoSrs.v2', META_KEY='cantoSrsMeta.v2';
+const DAY=86400000, NEW_PER_DAY=12;
+let srs={}, meta={day:0,newCount:0};
+try{srs=JSON.parse(localStorage.getItem(SRS_KEY))||{}}catch(e){srs={}}
+try{meta=JSON.parse(localStorage.getItem(META_KEY))||meta}catch(e){}
+function saveSrs(){localStorage.setItem(SRS_KEY,JSON.stringify(srs))}
+function saveMeta(){localStorage.setItem(META_KEY,JSON.stringify(meta))}
+function today(){return Math.floor(Date.now()/DAY)}
+function newAllowed(){ if(meta.day!==today()){meta={day:today(),newCount:0};saveMeta();} return Math.max(0,NEW_PER_DAY-meta.newCount); }
+function bumpNew(){ if(meta.day!==today()){meta={day:today(),newCount:0};} meta.newCount++; saveMeta(); }
 
-function totalCards(){ return DECKS.reduce((s,d)=>s+((d.cards&&d.cards.length)||0),0) }
-function learnedCount(di){ const d=DECKS[di]; if(!d.cards)return 0; let n=0; d.cards.forEach((_,ci)=>{if(state[cardKey(di,ci)]==='know')n++}); return n }
-function allLearned(){ let n=0; DECKS.forEach((d,di)=>{n+=learnedCount(di)}); return n }
+// ============ 卡片池（排除调表）============
+function srsCards(){
+  const out=[];
+  DECKS.forEach(d=>{ if(d.type==='chart'||!d.cards)return;
+    d.cards.forEach((c,i)=>out.push({id:d.id+':'+c.hk, deckId:d.id, hk:c.hk, jy:c.jy, cn:c.cn, a:c.a||c.hk})); });
+  return out;
+}
+const ALL=srsCards();
+function deckLearned(d){ if(!d.cards)return 0; let n=0; d.cards.forEach(c=>{const s=srs[d.id+':'+c.hk]; if(s&&s.reps>0)n++;}); return n; }
 
+// ============ 调度（简化 SM-2，单位=天）============
+function ivlText(n){ return n<=0?'<10分':(n===1?'1天':n+'天'); }
+function preview(st,r){ // 预测该评分的下次间隔（不写入）
+  st=st?{...st}:{ivl:0,ease:2.5,reps:0};
+  if(r===0) return 0;
+  if(r===1){ if(st.reps===0)return 1; if(st.reps===1)return 3; return Math.round(st.ivl*st.ease); }
+  if(st.reps===0)return 2; return Math.round(st.ivl*st.ease*1.3);
+}
+function applyRating(id,r){
+  let st=srs[id]; const isNew=!st; st=st?{...st}:{ivl:0,ease:2.5,reps:0,lapse:0};
+  if(isNew) bumpNew();
+  if(r===0){ st.ease=Math.max(1.3,st.ease-0.2); st.ivl=0; st.reps=0; st.lapse=(st.lapse||0)+1; st.due=today(); }
+  else if(r===1){ if(st.reps===0)st.ivl=1; else if(st.reps===1)st.ivl=3; else st.ivl=Math.round(st.ivl*st.ease); st.reps++; st.due=today()+st.ivl; }
+  else { st.ease+=0.15; if(st.reps===0)st.ivl=2; else st.ivl=Math.round(st.ivl*st.ease*1.3); st.reps++; st.due=today()+st.ivl; }
+  srs[id]=st; saveSrs();
+}
+function dueList(){ const t=today(); return ALL.filter(c=>{const s=srs[c.id]; return s&&s.due<=t&&s.reps>0;}); }
+function newList(){ return ALL.filter(c=>!srs[c.id]||srs[c.id].reps===0); }
+function dueCount(){ return dueList().length + Math.min(newList().length, newAllowed()); }
+
+// ============ 首页 ============
 function renderHome(){
-  const tot=totalCards(), lr=allLearned();
-  hLearned.textContent=lr; hTotal.textContent=tot; hPct.textContent=(tot?Math.round(lr/tot*100):0)+'%';
+  const learned=ALL.filter(c=>srs[c.id]&&srs[c.id].reps>0).length;
+  const dc=dueCount();
+  document.getElementById('dueCnt').innerHTML = dc>0 ? (dc+' <small>张待复习</small>') : '🎉 <small>今日复习完成</small>';
+  const rb=document.getElementById('revBtn'); rb.textContent = dc>0?('开始复习 ('+dc+')'):'今日无到期 · 自由复习'; rb.disabled=false;
+  mLearn.textContent=learned; mTotal.textContent=ALL.length; mNew.textContent=newList().length;
   let html='';
   DECKS.forEach((d,di)=>{
     if(d.type==='chart'){
-      html+=`<div class="deck star" onclick="startDeck(${di})">
-        <div class="num">${d.num||'★'}</div>
-        <div class="body"><div class="nm">${d.name}</div><div class="ds">${d.desc||''}</div></div>
-        <div class="prog">🎧 点开</div></div>`;
+      html+=`<div class="deck star" onclick="openDeck(${di})"><div class="num">${d.num||'★'}</div>
+        <div class="body"><div class="nm">${d.name}</div><div class="ds">${d.desc||''}</div></div><div class="prog">🎧 点开</div></div>`;
       return;
     }
-    const lc=learnedCount(di), tc=d.cards.length, pct=tc?Math.round(lc/tc*100):0;
-    html+=`<div class="deck" onclick="startDeck(${di})">
-      <div class="num">${d.num||(di+1)}</div>
+    const lc=deckLearned(d), tc=d.cards.length, pct=tc?Math.round(lc/tc*100):0;
+    html+=`<div class="deck" onclick="openDeck(${di})"><div class="num">${d.num||(di+1)}</div>
       <div class="body"><div class="nm">${d.name}</div><div class="ds">${d.desc||''}</div>
-        <div class="bar"><i style="width:${pct}%"></i></div></div>
-      <div class="prog">${lc}/${tc}</div></div>`;
+        <div class="bar"><i style="width:${pct}%"></i></div></div><div class="prog">${lc}/${tc}</div></div>`;
   });
   deckList.innerHTML=html;
 }
 
-// ---- 音频 ----
-function audioFor(a){ return 'audio/'+encodeURIComponent(a)+'.mp3' }
+// ============ 音频 ============
+function audioFor(a){return 'audio/'+encodeURIComponent(a)+'.mp3'}
 let audioEl=null;
-function playAudio(a){ try{ if(audioEl){audioEl.pause()} audioEl=new Audio(audioFor(a)); audioEl.play().catch(()=>{});}catch(e){} }
+function playAudio(a){try{if(audioEl)audioEl.pause();audioEl=new Audio(audioFor(a));audioEl.play().catch(()=>{});}catch(e){}}
 
-// ---- 调表网格 ----
-function startDeck(di){
-  const d=DECKS[di];
-  document.getElementById('home').style.display='none';
-  document.getElementById('study').classList.add('on');
-  sTitle.textContent=d.name;
-  if(d.type==='chart'){ sCount.textContent=''; renderChart(d); }
-  else { cur={di, queue:d.cards.map((_,i)=>i), pos:0, flipped:false}; renderCard(); }
-}
+function showStudy(title){ document.getElementById('home').style.display='none'; document.getElementById('study').classList.add('on'); sTitle.textContent=title; }
 function goHome(){ document.getElementById('study').classList.remove('on'); document.getElementById('home').style.display=''; renderHome(); }
+function hkClass(s){const n=[...s].length; return n>=8?'hk xlong':(n>=5?'hk long':'hk')}
 
-function renderChart(d){
-  let th='';
-  d.tones.forEach(t=>{ const ru=t.col.indexOf('入')===0; th+=`<div class="th ${ru?'ru':''}"><b>${t.col}</b>${t.nm}<br>${t.tp} ${t.val}</div>`; });
-  let body='';
-  d.rows.forEach(r=>{
-    body+=`<div class="rowlab">${r.label}<button onclick="playAudio('${r.rowAudio}')">🔊 整行</button></div>`;
-    r.cells.forEach(c=>{ body+=`<div class="cell" onclick="playAudio('${c.hk}')"><div class="c">${c.hk}</div><div class="p">${c.jy}</div></div>`; });
-  });
-  cardArea.innerHTML=`
-    <div class="chartNote">这是第一课的<b>九声调表</b>。点任意字听单字、点「🔊 整行」听整行 9 个调一条龙。<b>si 系</b>和<b>数字</b>行是最准的听辨阶梯；口诀行「番茄酱牛腩面一百碟」帮你记住有 9 个声。</div>
-    <div class="rowbtns">
-      ${d.rows.map(r=>`<button onclick="playAudio('${r.rowAudio}')">🔊 ${r.label.split(' ')[0]}</button>`).join('')}
-    </div>
-    <div class="chartScroll"><div class="chartGrid">${th}${body}</div></div>
-    <div class="scrollhint">← 表格可左右滑动 →</div>
-    <div class="tip" style="margin-top:16px">🎯 第一课目标：能指着任一格读出它的调、并听出 si 系 6 个调的高低。每天点几遍，跟读出声。</div>`;
+// ============ 复习模式（SRS）============
+let R={queue:[], pos:0, done:0};
+function startReview(){
+  const due=dueList(); const neu=newList().slice(0, newAllowed());
+  // 打乱 due，新卡接在后面
+  for(let i=due.length-1;i>0;i--){const j=(i*7+3)%(i+1);[due[i],due[j]]=[due[j],due[i]];}
+  R={queue:due.concat(neu), pos:0, done:0, total:due.length+neu.length};
+  showStudy('复习'); document.getElementById('pbarWrap').style.display='';
+  if(R.queue.length===0){ reviewDone(); return; }
+  renderReviewCard();
+}
+function renderReviewCard(){
+  if(R.pos>=R.queue.length){ return reviewDone(); }
+  const c=R.queue[R.pos];
+  sCount.textContent=R.queue.length-R.pos+' 张';
+  pbar.style.width=(R.total? R.done/R.total*100:0)+'%';
+  const isNew=!srs[c.id]||srs[c.id].reps===0;
+  cardArea.innerHTML=`<div class="flash">
+      <div class="badge">${isNew?'🆕 新卡':'🔁 复习'}</div>
+      <div class="${hkClass(c.hk)}">${c.hk}</div>
+      <button class="play" onclick="playAudio('${c.a.replace(/'/g,"\\'")}')">🔊 听</button>
+      <div class="reveal" id="rev"><div class="jy">${c.jy||''}</div><div class="cn">${c.cn||''}</div></div>
+    </div><div id="ctrl"><button class="showbtn" onclick="revFlip()">👀 睇答案</button></div>`;
+  playAudio(c.a);
+}
+function revFlip(){
+  const c=R.queue[R.pos];
+  document.getElementById('rev').classList.add('on');
+  const i0=preview(srs[c.id],0), i1=preview(srs[c.id],1), i2=preview(srs[c.id],2);
+  document.getElementById('ctrl').innerHTML=`<div class="rate">
+    <button class="r0" onclick="rate(0)">唔識<span class="iv">${ivlText(i0)}</span></button>
+    <button class="r1" onclick="rate(1)">一般<span class="iv">${ivlText(i1)}</span></button>
+    <button class="r2" onclick="rate(2)">熟<span class="iv">${ivlText(i2)}</span></button></div>`;
+}
+function rate(r){
+  const c=R.queue[R.pos];
+  applyRating(c.id,r);
+  if(r===0){ R.queue.push(c); }      // 唔識：本轮稍后再来
+  else { R.done++; }
+  R.pos++;
+  renderReviewCard();
+}
+function reviewDone(){
+  document.getElementById('pbarWrap').style.display='none';
+  const dc=dueCount();
+  cardArea.innerHTML=`<div class="done"><div class="big">🎉</div>
+    <h3>复习完成</h3><p class="muted">这轮过了 ${R.done||0} 张${dc>0?'　·　还有 '+dc+' 张到期':''}</p>
+    <div class="nav" style="max-width:360px;margin:18px auto 0">
+      ${dc>0?'<button class="prim" onclick="startReview()">继续复习</button>':''}
+      <button onclick="goHome()">🏠 回首页</button></div></div>`;
 }
 
-// ---- 翻卡 ----
-let cur={di:0, queue:[], pos:0, flipped:false};
-function hkClass(s){ const n=[...s].length; return n>=8?'hk xlong':(n>=5?'hk long':'hk') }
-function renderCard(){
-  const d=DECKS[cur.di];
-  if(cur.pos>=cur.queue.length){ return renderDone(); }
-  const ci=cur.queue[cur.pos]; const c=d.cards[ci]; const a=c.a||c.hk;
-  sCount.textContent=(cur.pos+1)+'/'+cur.queue.length;
-  cur.flipped=false;
-  cardArea.innerHTML=`
-    <div class="flash">
+// ============ 浏览模式（按课，无评分）============
+let B={di:0, pos:0};
+function openDeck(di){
+  const d=DECKS[di];
+  if(d.type==='chart'){ showStudy(d.name); sCount.textContent=''; document.getElementById('pbarWrap').style.display='none'; renderChart(d); return; }
+  B={di, pos:0}; showStudy(d.name); document.getElementById('pbarWrap').style.display='none'; renderBrowse();
+}
+function renderBrowse(){
+  const d=DECKS[B.di], c=d.cards[B.pos], a=c.a||c.hk;
+  sCount.textContent=(B.pos+1)+'/'+d.cards.length;
+  cardArea.innerHTML=`<div class="flash">
       <div class="${hkClass(c.hk)}">${c.hk}</div>
       <button class="play" onclick="playAudio('${a.replace(/'/g,"\\'")}')">🔊 听</button>
       <div class="reveal" id="rev"><div class="jy">${c.jy||''}</div><div class="cn">${c.cn||''}</div></div>
     </div>
-    <div id="ctrl"><button class="showbtn" onclick="flip()">👀 睇答案</button></div>`;
-  playAudio(a);
+    <div id="ctrl"><button class="showbtn" onclick="document.getElementById('rev').classList.add('on')">👀 睇答案</button></div>
+    <div class="nav">
+      <button onclick="browseMove(-1)" ${B.pos===0?'disabled':''}>‹ 上一张</button>
+      <button class="prim" onclick="browseMove(1)">${B.pos===d.cards.length-1?'完成 ✓':'下一张 ›'}</button>
+    </div>`;
 }
-function flip(){
-  cur.flipped=true;
-  document.getElementById('rev').classList.add('on');
-  document.getElementById('ctrl').innerHTML=`<div class="acts">
-      <button class="again" onclick="mark('again')">🔁 再练</button>
-      <button class="know" onclick="mark('know')">✅ 识得</button></div>`;
+function browseMove(dir){
+  const d=DECKS[B.di];
+  if(dir===1 && B.pos===d.cards.length-1){ goHome(); return; }
+  B.pos=Math.max(0,Math.min(d.cards.length-1,B.pos+dir)); renderBrowse();
 }
-function mark(how){
-  const ci=cur.queue[cur.pos];
-  if(how==='know'){ state[cardKey(cur.di,ci)]='know'; }
-  else { delete state[cardKey(cur.di,ci)]; cur.queue.push(ci); }
-  save(); cur.pos++; renderCard();
+
+// ============ 调表 ============
+function renderChart(d){
+  let th=''; d.tones.forEach(t=>{const ru=t.col.indexOf('入')===0; th+=`<div class="th ${ru?'ru':''}"><b>${t.col}</b>${t.nm}<br>${t.tp} ${t.val}</div>`;});
+  let body=''; d.rows.forEach(r=>{ body+=`<div class="rowlab">${r.label}<button onclick="playAudio('${r.rowAudio}')">🔊 整行</button></div>`;
+    r.cells.forEach(c=>{ body+=`<div class="cell" onclick="playAudio('${c.hk}')"><div class="c">${c.hk}</div><div class="p">${c.jy}</div></div>`; }); });
+  cardArea.innerHTML=`
+    <div class="chartNote">第一课<b>九声调表</b>。点字听单字、点「🔊 整行」听整行 9 个调。<b>si 系</b>和<b>数字</b>行是最准的听辨阶梯。</div>
+    <div class="rowbtns">${d.rows.map(r=>`<button onclick="playAudio('${r.rowAudio}')">🔊 ${r.label.split(' ')[0]}</button>`).join('')}</div>
+    <div class="chartScroll"><div class="chartGrid">${th}${body}</div></div>
+    <div class="scrollhint">← 表格可左右滑动 →</div>
+    <div class="tip">🎯 目标：能指着任一格读出它的调、听出 si 系 6 个调高低。</div>`;
 }
-function renderDone(){
-  const d=DECKS[cur.di]; const lc=learnedCount(cur.di), tc=d.cards.length;
-  cardArea.innerHTML=`<div class="done">
-    <div class="big">${lc===tc?'🎉':'👏'}</div>
-    <h3>${d.name} — 这轮完成</h3><p class="muted">识得 ${lc}/${tc}</p>
-    <div class="acts" style="max-width:360px;margin:18px auto 0">
-      <button class="again" onclick="startDeck(${cur.di})">🔁 再来一轮</button>
-      <button class="know" onclick="goHome()">🏠 回首页</button></div></div>`;
-}
-function resetAll(){ if(confirm('清空所有学习进度？')){ state={}; save(); renderHome(); } }
+
+function resetAll(){ if(confirm('重置所有复习进度？')){ srs={}; meta={day:today(),newCount:0}; saveSrs(); saveMeta(); renderHome(); } }
 
 renderHome();
 </script>
