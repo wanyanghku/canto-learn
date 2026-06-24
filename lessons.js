@@ -1,0 +1,84 @@
+// 电子教材内容。每课 = {num,title,sub,html}。html 里 <span class="au" data-a="音频名">…</span> 点击发音。
+// [[CHART]] 占位 = 渲染九声调表网格。音频名同 audio/<名>.mp3。
+const LESSONS = [
+{
+  num:'第一课', title:'九声（声调）', sub:'调表 · 入声 · 口诀',
+  html:`
+<p>粤语有 <b>6 个调型</b> + 3 个<b>入声</b>（短促、收 -p/-t/-k）合称"九声"。入声和 1/3/6 共享音高，所以<b>音高只有 6 档</b>。这一课的核心就是把下面这张表听熟、读准。</p>
+
+<h3>一、九声调表（先背熟这张）</h3>
+<p class="cap">点任意字听单字；点「🔊 整行」听整行 1→9 调一条龙。<b>si 系</b>和<b>数字</b>行是最准的听辨阶梯。</p>
+[[CHART]]
+
+<div class="note warm">🍜 <b>记调口诀</b>：你老师的「番茄酱牛腩面，一百碟」<span class="au chip" data-a="番茄醬牛腩麵一百碟">🔊 听</span> —— 9 个字正好排成 1→9 调！「番茄酱牛腩面」= 6 个舒声调，「一百碟」= 3 个入声（一/百/碟，收塞音、短促）。</div>
+<div class="note">⚠️ 两个小注（已查 words.hk）：① <b>茄</b> 本调 ke4，但「番茄」里变调读 <b>ke2</b>（落第 2 列）；② <b>發</b> 香港标准 <b>faat3</b>（口诀图上写 fat3 不准，fat1 是台山话）。</div>
+
+<h3>二、入声 -p / -t / -k</h3>
+<p class="cap">韵尾收一个不爆破的塞音（嘴型到位就停住），<b>短、收得住</b>，别拖长成"食=sí"。</p>
+<p><b>-p（收唇）</b>　<span class="au" data-a="十">十 sap6</span>　<span class="au" data-a="急">急 gap1</span>　<span class="au" data-a="濕">濕 sap1</span>　<span class="au" data-a="入">入 jap6</span></p>
+<p><b>-t（收舌尖）</b>　<span class="au" data-a="一">一 jat1</span>　<span class="au" data-a="七">七 cat1</span>　<span class="au" data-a="八">八 baat3</span>　<span class="au" data-a="熱">熱 jit6</span>　<span class="au" data-a="發">發 faat3</span></p>
+<p><b>-k（收喉）</b>　<span class="au" data-a="六">六 luk6</span>　<span class="au" data-a="食">食 sik6</span>　<span class="au" data-a="學">學 hok6</span>　<span class="au" data-a="國">國 gwok3</span>　<span class="au" data-a="白">白 baak6</span></p>
+
+<h3>三、六声调精练（si 系）</h3>
+<p class="cap">同一个音 si，走完 6 个调（点字听）：</p>
+<p>
+<span class="au" data-a="詩">詩 si1</span>·高平　<span class="au" data-a="史">史 si2</span>·高升　<span class="au" data-a="試">試 si3</span>·中平　<span class="au" data-a="時">時 si4</span>·低降　<span class="au" data-a="市">市 si5</span>·低升　<span class="au" data-a="事">事 si6</span>·低平
+</p>
+<p class="cap">普通话人最易混：<span class="au" data-a="試">試 si3</span> ↔ <span class="au" data-a="事">事 si6</span>（都平，3中6低）；<span class="au" data-a="史">史 si2</span> ↔ <span class="au" data-a="市">市 si5</span>（都升，2高5低）。</p>
+
+<div class="note">🎯 <b>第一课目标</b>：能指着调表任一格读出它的调；能听出 si 系 6 个调谁高谁低。</div>
+`
+},
+{
+  num:'第二课', title:'代词', sub:'人称 · 指示 · 疑问 + 例句',
+  html:`
+<p>第二课 = 代词系统：<b>人称 → 指示 → 疑问</b>。教材原页用"广州话拼音"(néi⁶、kêu⁵…)，这里统一<b>粤拼 Jyutping</b>（你=nei5），免得查词典对不上。</p>
+
+<h3>一、人称代词</h3>
+<p class="cap">公式：单数 + <b>哋 dei6（们）</b> → 复数</p>
+<table>
+<tr><th>字</th><th>粤拼</th><th>意思</th></tr>
+<tr><td><span class="au" data-a="我">我</span></td><td>ngo5</td><td>我</td></tr>
+<tr><td><span class="au" data-a="你">你</span></td><td>nei5</td><td>你</td></tr>
+<tr><td><span class="au" data-a="佢">佢</span></td><td>keoi5</td><td>他/她/它</td></tr>
+<tr><td><span class="au" data-a="哋">哋</span></td><td>dei6</td><td>们（词尾）</td></tr>
+</table>
+<p>→ <span class="au" data-a="我哋">我哋 ngo5 dei6 我们</span>　<span class="au" data-a="你哋">你哋 你们</span>　<span class="au" data-a="佢哋">佢哋 他们</span></p>
+
+<h3>二、指示代词</h3>
+<p class="cap">呢/嗰/邊（哪类）+ 個/度/啲（个/处/些）→ 九个组合，点格听：</p>
+<table>
+<tr><th></th><th>個（个）</th><th>度（里）</th><th>啲（些）</th></tr>
+<tr><th>呢 ni1<br>这</th><td><span class="au" data-a="呢個">呢個</span></td><td><span class="au" data-a="呢度">呢度</span></td><td><span class="au" data-a="呢啲">呢啲</span></td></tr>
+<tr><th>嗰 go2<br>那</th><td><span class="au" data-a="嗰個">嗰個</span></td><td><span class="au" data-a="嗰度">嗰度</span></td><td><span class="au" data-a="嗰啲">嗰啲</span></td></tr>
+<tr><th>邊 bin1<br>哪</th><td><span class="au" data-a="邊個">邊個</span></td><td><span class="au" data-a="邊度">邊度</span></td><td><span class="au" data-a="邊啲">邊啲</span></td></tr>
+</table>
+<p class="cap">💡 邊個 bin1 go3 = 哪个 / <b>谁</b>；邊度 = 哪里。</p>
+
+<h3>三、疑问代词</h3>
+<p><span class="au" data-a="乜嘢">乜嘢 mat1 je5</span> = 什么 = 口语 <span class="au" data-a="咩">咩 me1</span>（<b>最常用！</b>）　<span class="au" data-a="點樣">點樣 dim2 joeng2 怎么样</span>　<span class="au" data-a="點解">點解 dim2 gaai2 为什么</span></p>
+
+<div class="note">⚠️ <b>一个关键坑：係 vs 喺</b>　口语常都写「係」，但两个意思靠上下文分：<br><b>係 hai6 = 是</b>（呢個係咩 = 这个<b>是</b>什么）；<b>喺 hai2 = 在</b>（你喺呢度 = 你<b>在</b>这里）。下面例句 5 的「係」其实是喺（在）。</div>
+
+<h3>四、例句（点粤语听）</h3>
+<table>
+<tr><th>粤语</th><th>普通话</th></tr>
+<tr><td><span class="au" data-a="cy01_1">我哋食咪啊</span></td><td>我们吃什么（咪=咩）</td></tr>
+<tr><td><span class="au" data-a="cy01_2">你哋做緊咩啊</span></td><td>你们在做什么</td></tr>
+<tr><td><span class="au" data-a="cy01_3">佢哋去做咩啊</span></td><td>他们去做什么</td></tr>
+<tr><td><span class="au" data-a="cy01_4">呢個係咩啊</span></td><td>这个是什么</td></tr>
+<tr><td><span class="au" data-a="cy01_5">你係呢度做咩啊</span></td><td>你<b>在</b>这里做什么（係=喺）</td></tr>
+<tr><td><span class="au" data-a="c02_1">呢啲係咩啊</span></td><td>这些是什么</td></tr>
+<tr><td><span class="au" data-a="cy01_6">嗰個人係邊個</span></td><td>那个人是谁</td></tr>
+<tr><td><span class="au" data-a="c02_2">嗰度有個人</span></td><td>那里有个人</td></tr>
+<tr><td><span class="au" data-a="cy01_7">嗰啲嘢係邊個嘅</span></td><td>那些东西是谁的</td></tr>
+<tr><td><span class="au" data-a="c02_3">你係邊個</span></td><td>你是谁</td></tr>
+<tr><td><span class="au" data-a="cy01_8">你喺邊度</span></td><td>你在哪里</td></tr>
+<tr><td><span class="au" data-a="c02_4">邊啲嘢係我嘅</span></td><td>哪些东西是我的</td></tr>
+<tr><td><span class="au" data-a="cy01_9">呢個係乜嘢</span></td><td>这个是什么</td></tr>
+<tr><td><span class="au" data-a="cy01_10">你點樣啊</span></td><td>你怎么样</td></tr>
+<tr><td><span class="au" data-a="cy01_11">你點解噉講嘅</span></td><td>你为什么这么说</td></tr>
+</table>
+`
+},
+];
