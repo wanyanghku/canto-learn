@@ -111,6 +111,10 @@ const DECKS = [
     {hk:'呢個係乜嘢',jy:'ni1 go3 hai6 mat1 je5',cn:'这个是什么（书面些）',a:'cy01_9'},
     {hk:'你點樣啊',jy:'nei5 dim2 joeng2 aa3',cn:'你怎么样',a:'cy01_10'},
     {hk:'你點解噉講嘅',jy:'nei5 dim2 gaai2 gam2 gong2 ge3',cn:'你为什么这么说',a:'cy01_11'},
+    {hk:'呢啲係咩啊',jy:'ni1 di1 hai6 me1 aa3',cn:'这些是什么',a:'c02_1'},
+    {hk:'嗰度有個人',jy:'go2 dou6 jau5 go3 jan4',cn:'那里有个人',a:'c02_2'},
+    {hk:'你係邊個',jy:'nei5 hai6 bin1 go3',cn:'你是谁',a:'c02_3'},
+    {hk:'邊啲嘢係我嘅',jy:'bin1 di1 je5 hai6 ngo5 ge3',cn:'哪些东西是我的',a:'c02_4'},
   ]},
 
 // ⑨ 定係/仲
@@ -236,6 +240,27 @@ const DECKS = [
     {hk:'前便好多人排隊',jy:'cin4 bin6 hou2 do1 jan4 paai4 deoi2',cn:'前面好多人排队',a:'cy13_5'},
     {hk:'後便有一架車',jy:'hau6 bin6 jau5 jat1 gaa3 ce1',cn:'后面有一辆车',a:'cy13_6'},
     {hk:'本書喺我左手邊定係右手邊',jy:'bun2 syu1 hai2 ngo5 zo2 sau2 bin1 ding6 hai6 jau6 sau2 bin1',cn:'书在我左手边还是右手边',a:'cy13_7'},
+  ]},
+
+// ㉒ 代词系统（第二课重点）
+{ id:'pron', num:'㉒', name:'代词系统（课02）', desc:'人称/指示/疑问 三套搭法',
+  cards:[
+    {hk:'我哋',jy:'ngo5 dei6',cn:'我们（+哋 dei6=们）'},
+    {hk:'你哋',jy:'nei5 dei6',cn:'你们'},
+    {hk:'佢哋',jy:'keoi5 dei6',cn:'他们'},
+    {hk:'呢個',jy:'ni1 go3',cn:'这个'},
+    {hk:'呢度',jy:'ni1 dou6',cn:'这里'},
+    {hk:'呢啲',jy:'ni1 di1',cn:'这些'},
+    {hk:'嗰個',jy:'go2 go3',cn:'那个'},
+    {hk:'嗰度',jy:'go2 dou6',cn:'那里'},
+    {hk:'嗰啲',jy:'go2 di1',cn:'那些'},
+    {hk:'邊個',jy:'bin1 go3',cn:'哪个 / 谁'},
+    {hk:'邊度',jy:'bin1 dou6',cn:'哪里'},
+    {hk:'邊啲',jy:'bin1 di1',cn:'哪些'},
+    {hk:'乜嘢',jy:'mat1 je5',cn:'什么（=咩）'},
+    {hk:'咩',jy:'me1',cn:'什么（口语最常用）'},
+    {hk:'點樣',jy:'dim2 joeng2',cn:'怎么样'},
+    {hk:'點解',jy:'dim2 gaai2',cn:'为什么'},
   ]},
 
 ];
