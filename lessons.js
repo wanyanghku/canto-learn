@@ -81,4 +81,32 @@ const LESSONS = [
 </table>
 `
 },
+{
+  num:'🎬 金句', title:'彩蛋（好玩）', sub:'学过的词，藏在周星驰金句里',
+  html:`
+<p class="cap">用周星驰<b>说话金句</b>（机器音读，跟着读就行）把学过的词记牢。点 🔊 听，跟住读。</p>
+
+<div class="note warm">🎬 <b>少林足球</b> <span class="au chip" data-a="jc1">🔊 跟读</span><br>
+做人如果冇梦想，同条咸鱼有 <b>咩</b> 分别？<br>
+<span class="cap">zou6 jan4 jyu4 gwo2 mou5 mung6 soeng2，tung4 tiu4 haam4 jyu2 jau5 <b>me1</b> fan1 bit6</span><br>
+= 做人没梦想，跟咸鱼有<b>什么</b>分别？　👉 学过的 <b>咩 me1（什么）</b></div>
+
+<div class="note warm">🎬 <b>九品芝麻官</b> <span class="au chip" data-a="jc2">🔊 跟读</span><br>
+<b>邊個</b> 應我就鬧 <b>邊個</b> 囉！<br>
+<span class="cap">bin1 go3 jing3 ngo5 zau6 naau6 bin1 go3 lo1</span><br>
+= 谁应我我就骂谁！　👉 学过的 <b>邊個 bin1 go3（谁/哪个）</b></div>
+
+<div class="note warm">🎬 <b>九品芝麻官</b> <span class="au chip" data-a="jc3">🔊 跟读</span><br>
+你 <b>啲</b> 咁 <b>嘅</b> 嗜好<br>
+<span class="cap">nei5 <b>di1</b> gam2 <b>ge3</b> si3 hou3</span><br>
+= 你这种嗜好（咁嘅=这种的）　👉 学过的 <b>啲 di1（些）· 嘅 ge3（的）</b></div>
+
+<div class="note warm">🎬 <b>食神</b> <span class="au chip" data-a="jc4">🔊 跟读</span><br>
+請問你 <b>係 邊位</b> 呀？<br>
+<span class="cap">cing2 man6 nei5 <b>hai6 bin1 wai2</b> aa3</span><br>
+= 请问你是哪位？（超实用礼貌问法）　👉 学过的 <b>係 hai6（是）· 邊位 bin1 wai2（邊個的礼貌版）</b></div>
+
+<p class="cap">想加哪句金句？告诉我你喜欢的，我查证原文+配音加进来（只走说话台词，不走唱歌）。</p>
+`
+},
 ];
